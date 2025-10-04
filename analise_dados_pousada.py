@@ -127,6 +127,8 @@ if uploaded_file is not None:
     st.write(f"**Intercepto:** {modelo.intercept_:.2f}")
 
 else:
-    st.info("👆 Faça upload do arquivo **BD_Reservas.xlsx** para começar a análise.")
+
+    st.warning("👆 Por favor, envie o arquivo **BD_Reservas.xlsx** para começar a análise.")
+    st.stop()  # garante que nada abaixo seja executado antes do upload
 
 
