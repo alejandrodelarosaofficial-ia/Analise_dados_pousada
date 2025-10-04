@@ -103,29 +103,6 @@ if uploaded_file is not None:
     ax.set_title('Correlação entre Diárias e Receita Bruta')
     st.pyplot(fig)
 
-    # ==============================
-    # MODELO DE REGRESSÃO LINEAR
-    # ==============================
-    st.subheader("🤖 Modelo de Regressão Linear")
-
-    X = Relatorio[['Quantidade diarias ']]
-    y = Relatorio['Valor']
-
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-    modelo = LinearRegression()
-    modelo.fit(X_train, y_train)
-
-    previsoes = modelo.predict(X_test)
-
-    mse = mean_squared_error(y_test, previsoes)
-    rmse = np.sqrt(mse)
-
-    st.write(f"**Mean Squared Error (MSE):** {mse:.2f}")
-    st.write(f"**Root Mean Squared Error (RMSE):** {rmse:.2f}")
-    st.write(f"**Coeficiente:** {modelo.coef_[0]:.2f}")
-    st.write(f"**Intercepto:** {modelo.intercept_:.2f}")
-
 else:
 
     st.warning("👆 Por favor, envie o arquivo **BD_Reservas.xlsx** para começar a análise.")
